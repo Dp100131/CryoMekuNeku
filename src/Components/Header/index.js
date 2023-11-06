@@ -4,7 +4,7 @@ import "./index.css";
 export function Header(){
 
     return(
-        <header className="flex flex-row justify-around items-center text-center pt-5 pb-5 bg-sky-950 text-white fixed top-0 w-full z-10 text-serift">
+        <header className="flex flex-row justify-around items-center text-center pt-5 pb-5 bg-sky-950 text-white">
             <div className="logo">
                 <h1 className="text-xl font-bold ">CryoMekuNeku</h1>
             </div>
