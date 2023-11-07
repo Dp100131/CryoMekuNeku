@@ -1,8 +1,12 @@
 import React from "react";
 import "./index.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../Provider/Auth";
+import { Avatar } from "@fluentui/react-components"; 
 
 export function Header(){
+
+    const { isLogIn } = useAuth();
 
     return(
         <header className="fixed top-0 w-full z-10 flex flex-row justify-around items-center text-center pt-5 pb-5 bg-primary text-white">
@@ -30,10 +34,13 @@ export function Header(){
                 </ul>
             </div>
             <div className="login">
-                <h3><Link
+                {isLogIn() ? <h3><Link
+                    className="font-semibold font-family-LogIn leading-6 text-white hover:text-indigo-500" 
+                    to={"/profile"}
+                ><Avatar shape="circular"/></Link></h3> : <h3><Link
                     className="font-semibold font-family-LogIn leading-6 text-white hover:text-indigo-500" 
                     to={"/LogIn"}
-                >Iniciar sesión</Link></h3>
+                >Iniciar sesión</Link></h3>}
             </div>
         </header>
     );

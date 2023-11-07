@@ -34,7 +34,11 @@ function AuthProvider({ children }) {
 
     }
 
-    const auth = { user, login, logout, setUser }
+    const isLogIn = () => {
+        return user !== null;
+    }
+
+    const auth = { user, login, logout, setUser, isLogIn }
 
     return(
 

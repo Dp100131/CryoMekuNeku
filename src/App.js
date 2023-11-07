@@ -22,16 +22,16 @@ function App() {
         <UsersProvider>
           <AuthProvider>
             <Header></Header>
-              <div className="flex-1 flex items-center justify-center mt-[50px]">
+              <div className="flex-1 flex items-center justify-center mt-[70px]">
                 <Routes>
-                  <Route path='/' element={ <HomePage/>}/>
-                  <Route path='/Community' element={ <CommunityPage/>}/>
-                  <Route path='/AboutUs' element={ <AboutUsPage/>}/>
-                  <Route path='/Support' element={ <SupportPage/>}/>
-                  <Route path='/detail' element={ <AuthRoute> <DetailPage/> </AuthRoute>}/>
-                  <Route path='/LogIn' element={ <LogInPage/>}/>
-                  <Route path='/CreateAnAccount' element={ <CreateProfilePage/>}/>
-                  <Route path='/profile' element={ <AuthRoute> <ProfilePage/> </AuthRoute>}/>
+                  <Route path='/' element={ <HomePage/> }/>
+                  <Route path='/Community' element={ <CommunityPage/> }/>
+                  <Route path='/AboutUs' element={ <AboutUsPage/> }/>
+                  <Route path='/Support' element={ <SupportPage/> }/>
+                  <Route path='/detail' element={ <AuthRoute> <DetailPage/> </AuthRoute> }/>
+                  <Route path='/LogIn' element={ <LogInPage/> }/>
+                  <Route path='/CreateAnAccount' element={ <CreateProfilePage/> }/>
+                  <Route path='/profile' element={ <AuthRoute> <ProfilePage/> </AuthRoute> }/>
                 </Routes>
               </div>
             <Footer></Footer>
