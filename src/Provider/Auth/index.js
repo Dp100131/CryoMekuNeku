@@ -1,18 +1,28 @@
 import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-
-const adminList = ['Andrea', 'Andrés', 'Oscar', 'Daniel'];
+import { useUsers } from "../Users";
 
 const AuthContext = React.createContext();
 
 function AuthProvider({ children }) {
+    
     const navigate = useNavigate();
     const [user, setUser] = React.useState(null);
 
+    const users = useUsers();
+
+    console.log(users);
+    
     const login = ( email,  password) => {
 
-        setUser( { email, password } )
-        navigate('/profile')
+        const comprobar = users.users;
+
+        comprobar.forEach(element => {
+            if ((element.email === email) && (element.password === password)) {
+                setUser( { ...element } )
+                navigate('/profile')
+            }
+        });
 
     }
 

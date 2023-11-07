@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import { Link } from "react-router-dom";
 
 export function LogInPage(){
     return (
@@ -65,9 +66,10 @@ export function LogInPage(){
             </form>
 
             <p className="mt-10 text-center text-sm text-gray-500">                
-                <a href="#" className="font-semibold font-family-LogIn leading-6 text-white hover:text-indigo-500">
-                Registrarse
-                </a>
+                <Link
+                    className="font-semibold font-family-LogIn leading-6 text-white hover:text-indigo-500" 
+                    to={"/CreateAnAccount"}
+                >Registrarse</Link>
             </p>
             </div>
         </div>

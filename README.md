@@ -10,5 +10,6 @@ Aquí está el código del sitio web "~ /Cryo_Meku_Neku/ ~" creado como proyecto
 ### Librería CSS
     - npm install -D tailwindcss
     - npx tailwindcss init
+    - npm install flowbite flowbite-react
 ### Icons
     - npm install react-icons --save
