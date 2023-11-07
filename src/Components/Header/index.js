@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export function Header(){
 
     return(
-        <header className="flex flex-row justify-around items-center text-center pt-5 pb-5 bg-primary text-white">
+        <header className="fixed top-0 w-full z-10 flex flex-row justify-around items-center text-center pt-5 pb-5 bg-primary text-white">
             <div className="logo">
                 <h1 className="text-xl font-bold ">CryoMekuNeku</h1>
             </div>
