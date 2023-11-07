@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import { BsFacebook, BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export function Footer(){
 
@@ -14,30 +15,42 @@ export function Footer(){
             </a>
             <ul className="flex flex-wrap mb-6 text-sm items-center text-center font-medium gap-6 text-white  sm:mb-0 dark:text-white-400">
                 <li>
-                    <BsFacebook></BsFacebook>
+                <Link
+                    className="font-semibold font-family-LogIn leading-6 text-white hover:text-indigo-500" 
+                    to={"https://m.facebook.com/"}
+                ><BsFacebook></BsFacebook></Link>
                 </li>
                 <li>
-                    <BsInstagram></BsInstagram>
+                <Link
+                    className="font-semibold font-family-LogIn leading-6 text-white hover:text-indigo-500" 
+                    to={"https://www.instagram.com/"}
+                ><BsInstagram></BsInstagram></Link>
                 </li>
                 <li>
-                    <BsTwitter></BsTwitter>
+                <Link
+                    className="font-semibold font-family-LogIn leading-6 text-white hover:text-indigo-500" 
+                    to={"https://twitter.com/"}
+                ><BsTwitter></BsTwitter></Link>
                 </li>
                 <li>
-                    <BsGithub></BsGithub>
+                <Link
+                    className="font-semibold font-family-LogIn leading-6 text-white hover:text-indigo-500" 
+                    to={"https://github.com/Dp100131/CryoMekuNeku"}
+                ><BsGithub></BsGithub></Link>
                 </li>
             </ul>
             <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-white  sm:mb-0 dark:text-gray-400">
                 <li>
-                    <a href="#" className="mr-4 hover:underline md:mr-6 ">Nosotros</a>
+                    <a className="mr-4 hover:underline md:mr-6 ">Nosotros</a>
                 </li>
                 <li>
-                    <a href="#" className="mr-4 hover:underline md:mr-6">Politicas de privacidad</a>
+                    <a className="mr-4 hover:underline md:mr-6">Politicas de privacidad</a>
                 </li>
                 <li>
-                    <a href="#" className="mr-4 hover:underline md:mr-6 ">Licencia</a>
+                    <a className="mr-4 hover:underline md:mr-6 ">Licencia</a>
                 </li>
                 <li>
-                    <a href="#" className="hover:underline">Contacto</a>
+                    <a className="hover:underline">Contacto</a>
                 </li>
             </ul>
         </div>
