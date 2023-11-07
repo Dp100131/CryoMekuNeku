@@ -6,6 +6,9 @@ import { DetailPage } from './Pages/DetailPage';
 import { LogInPage } from './Pages/LogInPage';
 import { ProfilePage } from './Pages/ProfilePage';
 import { CreateProfilePage } from './Pages/CreateProfilePage';
+import { CommunityPage } from './Pages/CommunityPage';
+import { AboutUsPage } from './Pages/AboutUsPage';
+import { SupportPage } from './Pages/SupportPage';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { AuthProvider } from './Provider/Auth';
@@ -22,6 +25,9 @@ function App() {
               <AuthProvider>
                 <Routes>
                   <Route path='/' element={ <HomePage/>}/>
+                  <Route path='/Community' element={ <CommunityPage/>}/>
+                  <Route path='/AboutUs' element={ <AboutUsPage/>}/>
+                  <Route path='/Support' element={ <SupportPage/>}/>
                   <Route path='/detail' element={ <AuthRoute>
                     <DetailPage/>
                   </AuthRoute>}/>

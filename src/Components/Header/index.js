@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import { Link } from "react-router-dom";
 
 export function Header(){
 
@@ -10,14 +11,29 @@ export function Header(){
             </div>
             <div className="nav">
                 <ul className="flex gap-5">
-                    <li>Tienda</li>
-                    <li>Comunidad</li>
-                    <li>Acerca De</li>
-                    <li>Soporte</li>
+                    <li><Link
+                    className="font-semibold font-family-LogIn leading-6 text-white hover:text-indigo-500" 
+                    to={"/"}
+                >Tienda</Link></li>
+                    <li><Link
+                    className="font-semibold font-family-LogIn leading-6 text-white hover:text-indigo-500" 
+                    to={"/Community"}
+                >Comunidad</Link></li>
+                    <li><Link
+                    className="font-semibold font-family-LogIn leading-6 text-white hover:text-indigo-500" 
+                    to={"/AboutUs"}
+                >Acerca De</Link></li>
+                    <li><Link
+                    className="font-semibold font-family-LogIn leading-6 text-white hover:text-indigo-500" 
+                    to={"/Support"}
+                >Soporte</Link></li>
                 </ul>
             </div>
             <div className="login">
-                <h3>Iniciar sesión</h3>
+                <h3><Link
+                    className="font-semibold font-family-LogIn leading-6 text-white hover:text-indigo-500" 
+                    to={"/LogIn"}
+                >Iniciar sesión</Link></h3>
             </div>
         </header>
     );
