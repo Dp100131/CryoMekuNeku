@@ -34,21 +34,11 @@ function AuthProvider({ children }) {
 
     }
 
-    const isLogIn = () => {
-        return user !== null;
-    }
+    const isLogIn = () => { return user !== null; }
 
     const auth = { user, login, logout, setUser, isLogIn }
 
-    return(
-
-        <AuthContext.Provider value={auth}>
-
-            {children}
-
-        </AuthContext.Provider>
-
-    )
+    return( <AuthContext.Provider value={auth}> {children} </AuthContext.Provider> )
 
 }
 
