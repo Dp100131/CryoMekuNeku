@@ -16,7 +16,7 @@ import {
 
 export function HomePage(){
   
-    const [categoria, setCategoria] = useState("Todas"); 
+    const [categoria, setCategoria] = useState("Todas");
     const imagenes = [
         { src: resident, precio:"COL$ 229.900", categoria: "Acción", alt: "resident evil"},
         { src: amogus, precio:"COL$ 10.800", categoria: "Indie", alt: "Amongus" },

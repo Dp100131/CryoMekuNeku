@@ -39,7 +39,7 @@
         "id": 7,
         "name": "The Legend of Zelda Tears of the kingdom",
         "price": 300000,
-        "imgUrl": "../imgs/TloZ.jpg"
+        "imgUrl": "../../imgs/TloZ.jpg"
     },
     {
         "id": 7,
