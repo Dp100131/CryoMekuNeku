@@ -1,0 +1,50 @@
+[
+    {
+      "id": 1,
+      "name": "Among us",
+      "price": 10800,
+      "imgUrl": "../imgs/amongus.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Baldur's gate 3",
+      "price": 199900,
+      "imgUrl": "../imgs/baldurs.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Resident Evil 4",
+      "price": 229900,
+      "imgUrl": "../imgs/resident.jpg"
+    },
+    {
+      "id": 4,
+      "name": "The Legend of Zelda Breath of the wild",
+      "price": 269900,
+      "imgUrl": "../imgs/botw.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Cuphead",
+        "price": 39900,
+        "imgUrl": "../imgs/cuphead.avif"
+    },
+    {
+        "id": 6,
+        "name": "Spiderman 2",
+        "price": 309900,
+        "imgUrl": "../imgs/spiderman.avif"
+    },
+    {
+        "id": 7,
+        "name": "The Legend of Zelda Tears of the kingdom",
+        "price": 300000,
+        "imgUrl": "../../imgs/TloZ.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Mortal Kombat",
+        "price": 199900,
+        "imgUrl": "../imgs/mk.jpg"
+    }
+  ]
