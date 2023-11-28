@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./index.css";
 import zelda from "../../imgs/TloZ.jpg";
 import amogus from "../../imgs/amongus.jpg";
@@ -9,18 +9,13 @@ import resident from "../../imgs/resident.jpg";
 import baldurs from "../../imgs/baldurs.jpg";
 import mk from "../../imgs/mk.jpg";
 import { Carousel } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 import {
   Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
 } from "@material-tailwind/react";
 
 export function HomePage(){
-    const [open, setOpen] = React.useState(false);
   
-    const handleOpen = () => setOpen(!open);
     const [categoria, setCategoria] = useState("Todas"); 
     const imagenes = [
         { src: resident, precio:"COL$ 229.900", categoria: "Acción", alt: "resident evil"},
@@ -32,6 +27,8 @@ export function HomePage(){
         { src: spider, precio:"COL$ 309.900",categoria: "Acción", alt: "Spiderman 2" },
         { src: baldurs, precio:"COL$ 199.900",categoria: "Rol", alt: "Baldurs gate 3" }
       ];
+
+
     return(
     <div>
         
@@ -67,33 +64,16 @@ export function HomePage(){
           <p className="text-sm text-white">
             {imagen.precio}
           </p>
-          <Button onClick={handleOpen} color="red" className="px-4 py-2 text-sm text-white bg-red-600 mt-2" variant="gradient">
+        <Link to="/buy">
+        <Button color="red" className="px-4 py-2 text-sm text-white bg-red-600 mt-2" variant="gradient">
           Comprar
           </Button>
+        </Link>
         </div>
       </div>
           ))}
   </div>
   </div>
-  <Dialog open={open} handler={handleOpen}>
-        <DialogHeader>No se puede comprar.</DialogHeader>
-        <DialogBody>
-          La opción de compra no está disponible.
-        </DialogBody>
-        <DialogFooter>
-          <Button
-            variant="text"
-            color="red"
-            onClick={handleOpen}
-            className="mr-1"
-          >
-            <span>Cancel</span>
-          </Button>
-          <Button variant="gradient" color="green" onClick={handleOpen}>
-            <span>Confirm</span>
-          </Button>
-        </DialogFooter>
-      </Dialog>
 </div>
     );
 

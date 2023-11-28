@@ -9,6 +9,7 @@ import { CreateProfilePage } from './Pages/CreateProfilePage';
 import { CommunityPage } from './Pages/CommunityPage';
 import { AboutUsPage } from './Pages/AboutUsPage';
 import { SupportPage } from './Pages/SupportPage';
+import { BuyPage } from './Pages/BuyPage';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { AuthProvider } from './Provider/Auth';
@@ -32,6 +33,7 @@ function App() {
                   <Route path='/LogIn' element={ <LogInPage/> }/>
                   <Route path='/CreateAnAccount' element={ <CreateProfilePage/> }/>
                   <Route path='/profile' element={ <AuthRoute> <ProfilePage/> </AuthRoute> }/>
+                  <Route path='/buy' element={ <AuthRoute> <BuyPage/> </AuthRoute> }/>
                 </Routes>
               </div>
             <Footer></Footer>
