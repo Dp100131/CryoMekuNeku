@@ -64,13 +64,14 @@ export const Item = ({ name, price, id, imgUrl }) => {
 
   return (
     <div className="item-box">
+      <div class="flex flex-col">
       {quantityPerItem > 0 && (
         <div className="item-quantity">{quantityPerItem}</div>
       )}
-
       <div>{name}</div>
-      <img src={imagenes[id].src} alt={imagenes[id].alt} width="80" height="55"/>
+      <img class="w-auto h-auto object-cover" src={imagenes[id].src} alt={imagenes[id].alt}/>
       <div className="item-price">${price}</div>
+      </div>
 
       {quantityPerItem === 0 ? (
         <button className="item-add-button" onClick={() => addToCart()}>
