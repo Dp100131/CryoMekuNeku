@@ -1,5 +1,24 @@
 import React, { useContext } from "react";
 import { CartContext } from "./ShoppingCartContext";
+import zelda from "../imgs/TloZ.jpg";
+import amogus from "../imgs/amongus.jpg";
+import botw from "../imgs/botw.jpg";
+import spider from "../imgs/spiderman.avif";
+import cuphead from "../imgs/cuphead.avif";
+import resident from "../imgs/resident.jpg";
+import baldurs from "../imgs/baldurs.jpg";
+import mk from "../imgs/mk.jpg";
+
+const imagenes = {
+  1: { src: amogus, alt: "Amongus"},
+  2: { src: baldurs, alt: "Baldur's gate 3" },
+  3: { src: resident, alt: "Resident Evil 4" },
+  4: { src: botw, alt: "Botw" },
+  5: { src: cuphead, alt: "Cuphead" },
+  6: { src: spider, alt: "Spiderman 2" },
+  7: { src: zelda, alt: "TOTK" },
+  8: { src: mk, alt: "Mortal Kombat 11" },
+};
 
 export const Item = ({ name, price, id, imgUrl }) => {
   const [cart, setCart] = useContext(CartContext);
@@ -50,7 +69,7 @@ export const Item = ({ name, price, id, imgUrl }) => {
       )}
 
       <div>{name}</div>
-      <img src={imgUrl} width="80" height="55" alt="aa"/>
+      <img src={imagenes[id].src} alt={imagenes[id].alt} width="80" height="55"/>
       <div className="item-price">${price}</div>
 
       {quantityPerItem === 0 ? (
