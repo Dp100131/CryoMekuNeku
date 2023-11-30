@@ -15,7 +15,8 @@ module.exports = {
       'quaternary': '#262d84',
       'quinary': '#333c95',
     }),
-    extend: {},
+    extend: {
+    },
   },
   plugins: [
     require('flowbite/plugin')

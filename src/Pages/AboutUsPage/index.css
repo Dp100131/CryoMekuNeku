@@ -1,3 +1,9 @@
-h1{
+h1,h2{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:whitesmoke;
 }
+
+
+.custom-position {
+    object-position: 60% -3px;
+  }
