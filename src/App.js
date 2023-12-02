@@ -23,7 +23,7 @@ function App() {
         <UsersProvider>
           <AuthProvider>
             <Header></Header>
-              <div className="flex-1 flex items-center justify-center mt-[70px]">
+              <div className="flex-1 flex items-center justify-center mt-[125px]">
                 <Routes>
                   <Route path='/' element={ <HomePage/> }/>
                   <Route path='/Community' element={ <CommunityPage/> }/>
