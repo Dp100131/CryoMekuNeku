@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import "./index.css";
+import ButtonForUploadingFiles from "./ButtonForUploadingFiles";
 import { AudioSurroundModeNext } from "@fluentui/keyboard-keys";
 
 export function UploadFiles()
 {
 
-    const [image, setImage] = useState(null);
-    const [fileName, setFileName] = useState("No hay ningún archivo seleccionado");
+    const [image, setImage] = useState('');
+    const [fileName, setFileName] = useState("no file");
 
     return(
 
-        <div className="flex items-center justify-center">
+        <div className="flex-col items-center justify-center">
             {/* creamos un simple enunciado que le dice al usuario que hacer */}
             <div class="block box-border p-5 border-5">
                 <h1 className="text-white object-top">Por favor, selecciones los archivos a cargar</h1>
@@ -24,7 +25,7 @@ export function UploadFiles()
                     
                     {/* configuramos la etiqueta para el input file */}
                     <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                        <form 
+                        <form id="FormForUploadingFiles"
                             // onClick= {() => document.querySelector("#dropzone-file").click()}
                         >
                             <input id="dropzone-file" accept = "image/*" type="file" class="hidden" 
@@ -34,22 +35,26 @@ export function UploadFiles()
                                     // Cuando se cambie el estado de la input (cuando se recibe una
                                     // imagen), ejecuta la siguiente funcion anonima
 
-                                    ({target: {files}}) => { 
+                                    (e) => { 
 
-                                        // recibe como parámetro el "objetivo" que se seleccionó
-                                        // en el Admin. de archivos 
+                                        
+                                         // recibe como parámetro el "objetivo" que se seleccionó
+                                         // en el Admin. de archivos 
 
-                                        files[0] && setFileName(files[0].name)
-                                        // recibe el archivo y cambie el estado del archivo 
-                                        // de "ningun archivo seleccionado" al nombre del archivo 
+                                         e.target.files[0] && setFileName(e.target.files[0].name)
+                                         // recibe el archivo y cambie el estado del archivo 
+                                         // de "ningun archivo seleccionado" al nombre del archivo 
                                         
 
-                                        if( files )
+                                        if( e.target.files )
                                         {
 
+                                            
                                             // además, se crea la url para el objeto imagen 
                                             // que se subió
-                                            setImage(URL.createObjectURL(files[0]))
+                                            setImage(URL.createObjectURL(e.target.files[0]))
+
+                                            console.log(e.target.files)
 
                                         }
 
@@ -85,6 +90,7 @@ export function UploadFiles()
                     </label>
                 </div>
             
+            <ButtonForUploadingFiles file={ {name: fileName} }/>
 
         </div>
 
