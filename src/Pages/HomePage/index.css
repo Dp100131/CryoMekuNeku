@@ -1,3 +1,8 @@
-h1{
+@import 'flowbite/dist/flowbite.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1,body,div{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+};

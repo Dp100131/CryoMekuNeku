@@ -1,3 +1,8 @@
 header{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
+
+.icono-carrito{
+    width: 27px;
+    padding-right: 10px;
+}

@@ -18,6 +18,7 @@ function AuthProvider({ children }) {
         const comprobar = users.users;
 
         comprobar.forEach(element => {
+            console.log(element);
             if ((element.email === email) && (element.password === password)) {
                 setUser( { ...element } )
                 navigate('/profile')
@@ -33,17 +34,11 @@ function AuthProvider({ children }) {
 
     }
 
-    const auth = { user, login, logout }
+    const isLogIn = () => { return user !== null; }
 
-    return(
+    const auth = { user, login, logout, setUser, isLogIn }
 
-        <AuthContext.Provider value={auth}>
-
-            {children}
-
-        </AuthContext.Provider>
-
-    )
+    return( <AuthContext.Provider value={auth}> {children} </AuthContext.Provider> )
 
 }
 

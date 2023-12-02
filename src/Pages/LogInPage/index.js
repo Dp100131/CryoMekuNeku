@@ -1,8 +1,26 @@
 import React from "react";
 import "./index.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../Provider/Auth";
 
 export function LogInPage(){
+    const { login } = useAuth();
+
+    const [emailValue, setEmailValue] = React.useState("");
+
+    const [passwordValue, setPasswordValue] = React.useState("");
+
+    //onChanges
+    const handleEmailChange = (event) => {
+        setEmailValue(event.target.value);
+    };
+    const handlePasswordChange = (event) => {
+        setPasswordValue(event.target.value);
+    };
+    const onSubmit = () => {
+        login(emailValue, passwordValue);
+    }
+
     return (
         <>
         
@@ -15,13 +33,15 @@ export function LogInPage(){
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action="#" method="POST">
+            <div className="space-y-6">
                 <div>
                 <label htmlFor="email" className="block font-family-LogIn text-sm font-medium leading-6 text-white">
                     Email
                 </label>
                 <div className="mt-2">
                     <input
+                    value={emailValue}
+                    onChange={handleEmailChange}
                     id="email"
                     name="email"
                     type="email"
@@ -38,13 +58,15 @@ export function LogInPage(){
                     Contraseña
                     </label>
                     <div className="text-sm">
-                    <a href="#" className="font-semibold font-family-LogIn text-white hover:text-indigo-500">
+                    <a className="font-semibold font-family-LogIn text-white hover:text-indigo-500">
                         Olvidó su contraseña?
                     </a>
                     </div>
                 </div>
                 <div className="mt-2">
                     <input
+                    value={passwordValue}
+                    onChange={handlePasswordChange}
                     id="password"
                     name="password"
                     type="password"
@@ -57,13 +79,14 @@ export function LogInPage(){
 
                 <div>
                 <button
+                    onClick={onSubmit}
                     type="submit"
                     className="flex font-family-LogIn w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                     Ingresar
                 </button>
                 </div>
-            </form>
+            </div>
 
             <p className="mt-10 text-center text-sm text-gray-500">                
                 <Link
