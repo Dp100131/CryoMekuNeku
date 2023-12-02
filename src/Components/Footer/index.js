@@ -41,16 +41,16 @@ export function Footer(){
             </ul>
             <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-white  sm:mb-0 dark:text-gray-400">
                 <li>
-                    <a className="mr-4 hover:underline md:mr-6 ">Nosotros</a>
+                    <Link className="mr-4 hover:underline md:mr-6">Nosotros</Link> 
                 </li>
                 <li>
-                    <a className="mr-4 hover:underline md:mr-6">Politicas de privacidad</a>
+                    <Link className="mr-4 hover:underline md:mr-6">Politicas de privacidad</Link> 
                 </li>
                 <li>
-                    <a className="mr-4 hover:underline md:mr-6 ">Licencia</a>
+                    <Link className="mr-4 hover:underline md:mr-6">Licencia</Link> 
                 </li>
                 <li>
-                    <a className="hover:underline">Contacto</a>
+                    <Link className="mr-4 hover:underline md:mr-6">Contacto</Link> 
                 </li>
             </ul>
         </div>

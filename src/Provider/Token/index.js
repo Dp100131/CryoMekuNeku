@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocalStorage } from "../LocalStorage";
 
-const UsersContext = React.createContext();
+const TokenContext = React.createContext();
 
 function TokenProvider(props) {
 
@@ -15,21 +15,21 @@ function TokenProvider(props) {
       } = useLocalStorage('TOKEN_V1', ''); 
 
     return (
-        <UsersContext.Provider value={{
+        <TokenContext.Provider value={{
             token, 
             saveToken, 
             loading,
             error 
         }}>
             {children}
-        </UsersContext.Provider>
+        </TokenContext.Provider>
     );
     
 }
 
 function useToken() {
 
-    const token = React.useContext(UsersContext);
+    const token = React.useContext(TokenContext);
 
     return token;
     

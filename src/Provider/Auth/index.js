@@ -1,36 +1,41 @@
 import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useToken } from "../Token";
+import { useUser } from "../User";
 
 const AuthContext = React.createContext();
 
 function AuthProvider({ children }) {
     
     const navigate = useNavigate();
-    const [user, setUser] = React.useState(null);
+    const {user, saveUser} = useUser();
 
-    const [token, saveToken] = useToken();
-
-    console.log(token);
+    const { saveToken } = useToken(); 
     
     const login = ( data  ) => { 
         
-        saveToken(data.token)
-        setUser(data.user)
-        navigate('/profile')
+        try {
+            saveToken(data.token);
+            saveUser(data.user);
+            navigate('/profile');
+        } catch (error) {
+            console.error('Error during login:', error);
+            // Puedes manejar el error de alguna manera, por ejemplo, mostrar un mensaje al usuario.
+        }
 
     }
 
     const logout = () => {
 
-        setUser(null)
+        saveToken('')
+        saveUser('')
         navigate('/')
 
     }
 
-    const isLogIn = () => { return user !== null; }
+    const isLogIn = () => { return user !== ''; }
 
-    const auth = { user, login, logout, setUser, isLogIn }
+    const auth = { login, logout, isLogIn }
 
     return( <AuthContext.Provider value={auth}> {children} </AuthContext.Provider> )
 
@@ -46,9 +51,9 @@ function useAuth() {
 
 function AuthRoute(props) {
 
-    const auth = useAuth();
+    const { isLogIn } = useAuth();
 
-    if (!auth.user) {
+    if (!isLogIn) {
         return <Navigate to={"/login"}/>
     }
 

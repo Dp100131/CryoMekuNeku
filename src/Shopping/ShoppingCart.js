@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "./ShoppingCartContext";
 
 export const ShoppingCart = () => {
-  const [cart, setCart] = useContext(CartContext);
+  const [cart] = useContext(CartContext);
 
   const quantity = cart.reduce((acc, curr) => {
     return acc + curr.quantity;

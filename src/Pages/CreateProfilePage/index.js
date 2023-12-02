@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./index.css";
-import { useUsers } from "../../Provider/Users";
+import { useUser } from "../../Provider/User";
 import { useAuth } from "../../Provider/Auth";
 import { useNavigate } from "react-router";
 
@@ -8,7 +8,7 @@ export function CreateProfilePage(){
 
     const navigate = useNavigate();
 
-    const users = useUsers();
+    const user = useUser();
 
     const {  setUser } = useAuth();
 
@@ -37,7 +37,7 @@ export function CreateProfilePage(){
 
     const onSubmit = () => {
         if((emailValue) && (passwordValue) && (nameValue) && (lastNameValue)){
-            users.addUser({
+            user.addUser({
                 email: emailValue, 
                 password: passwordValue, 
                 name: nameValue, 
