@@ -12,17 +12,14 @@ function TokenProvider(props) {
         saveItem: saveToken, 
         loading,
         error
-      } = useLocalStorage('TOKEN_V1', '');
-
-    const saveTokenS = (Token) => saveToken(Token);
+      } = useLocalStorage('TOKEN_V1', ''); 
 
     return (
         <UsersContext.Provider value={{
             token, 
             saveToken, 
             loading,
-            error,
-            saveTokenS
+            error 
         }}>
             {children}
         </UsersContext.Provider>

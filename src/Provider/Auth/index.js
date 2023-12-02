@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { useUsers } from "../Users";
+import { useToken } from "../Token";
 
 const AuthContext = React.createContext();
 
@@ -9,21 +9,15 @@ function AuthProvider({ children }) {
     const navigate = useNavigate();
     const [user, setUser] = React.useState(null);
 
-    const users = useUsers();
+    const [token, saveToken] = useToken();
 
-    console.log(users);
+    console.log(token);
     
-    const login = ( email,  password) => {
-
-        const comprobar = users.users;
-
-        comprobar.forEach(element => {
-            console.log(element);
-            if ((element.email === email) && (element.password === password)) {
-                setUser( { ...element } )
-                navigate('/profile')
-            }
-        });
+    const login = ( data  ) => { 
+        
+        saveToken(data.token)
+        setUser(data.user)
+        navigate('/profile')
 
     }
 

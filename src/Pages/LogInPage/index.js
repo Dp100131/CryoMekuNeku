@@ -2,6 +2,9 @@ import React from "react";
 import "./index.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../Provider/Auth";
+import axios from "axios";
+
+const URL_LOG_IN = "http://localhost:4200/auth/login"
 
 export function LogInPage(){
     const { login } = useAuth();
@@ -18,7 +21,16 @@ export function LogInPage(){
         setPasswordValue(event.target.value);
     };
     const onSubmit = () => {
-        login(emailValue, passwordValue);
+        axios.post(URL_LOG_IN, {
+            email: emailValue,
+            password: passwordValue
+          })
+          .then(function (response) { 
+            login(response.data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          }); 
     }
 
     return (
@@ -58,9 +70,7 @@ export function LogInPage(){
                     Contraseña
                     </label>
                     <div className="text-sm">
-                    <a className="font-semibold font-family-LogIn text-white hover:text-indigo-500">
-                        Olvidó su contraseña?
-                    </a>
+                        <Link className="font-semibold font-family-LogIn text-white hover:text-indigo-500">Olvidó su contraseña?</Link>
                     </div>
                 </div>
                 <div className="mt-2">

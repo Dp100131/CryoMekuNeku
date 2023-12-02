@@ -12,15 +12,15 @@ import { SupportPage } from './Pages/SupportPage';
 import { BuyPage } from './Pages/BuyPage';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import { AuthProvider } from './Provider/Auth';
-import { UsersProvider } from './Provider/Users';
+import { AuthProvider } from './Provider/Auth'; 
 import { AuthRoute } from './Provider/Auth';
+import { TokenProvider } from './Provider/Token';
 
 function App() {
   return ( 
     <BrowserRouter> 
       <div className="min-h-screen flex flex-col"> 
-        <UsersProvider>
+        <TokenProvider>
           <AuthProvider>
             <Header></Header>
               <div className="flex-1 flex items-center justify-center mt-[125px]">
@@ -38,7 +38,7 @@ function App() {
               </div>
             <Footer></Footer>
           </AuthProvider>
-        </UsersProvider>  
+        </TokenProvider>  
       </div>  
   </BrowserRouter> 
   )
