@@ -9,12 +9,12 @@ const URL_GET = "http://localhost:4200/cart";
 function CartProvider({ children }) { 
     
     const [ carts, setCarts ] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loadingCart, setLoadingCart] = useState(true);
     const { token } = useToken();
     const { user } = useUser();
     
     const getCartForUser = () => {
-        setLoading(true);
+        setLoadingCart(true);
         const headers = { 
             'Authorization': `Bearer ${token}`
         }
@@ -22,7 +22,7 @@ function CartProvider({ children }) {
           .then(function (response) { 
             setCarts(response.data); 
             console.log(response.data);
-            setLoading(false);
+            setLoadingCart(false);
           })
           .catch(function (error) {
             console.log(error);
@@ -33,7 +33,7 @@ function CartProvider({ children }) {
 
     const deleteCartForUser = () => {};
 
-    const auth = { getCartForUser, createCartForUser, deleteCartForUser, carts, setCarts, loading }
+    const auth = { getCartForUser, createCartForUser, deleteCartForUser, carts, setCarts, loadingCart }
 
     return( <CartContext.Provider value={auth}> {children} </CartContext.Provider> )
 

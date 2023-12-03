@@ -34,7 +34,7 @@ function CartItems ({ products }) {
 
 export function Cart () {
   const cartCheckboxId = useId() 
-  const {carts, getCartForUser,  loading} = useCart(); 
+  const {carts, getCartForUser,  loadingCart} = useCart(); 
     useEffect(() => {
         getCartForUser();
     }, []);
@@ -46,7 +46,7 @@ export function Cart () {
       <input id={cartCheckboxId} type='checkbox' className='hidden' />
 
       <aside className='cart'>
-        {loading ? (
+        {loadingCart ? (
           <Spinner />
         ) : (
           <ul>
