@@ -4,12 +4,15 @@ import { useUser } from "../../Provider/User";
 import { Input, Button } from "@material-tailwind/react";
 import axios from "axios";
 import { useToken } from "../../Provider/Token";
+import { useNavigate } from "react-router-dom";
 
 const URL_USER = "http://localhost:4200/user"
 
 export function RechargePage(){
 
     // TODO: que funcione el balance
+
+    const navigate = useNavigate();
 
     const [balance, setBalance] = React.useState(null);
 
@@ -20,18 +23,16 @@ export function RechargePage(){
     const { user, saveUser } = useUser();
     const { token } = useToken(); 
 
-    const onRecharge = () => {
-        console.log(user)
-        console.log(token)
-        const options = {
-            headers: { Authorization: `Bearer ${token}` },
-            data:{
-                balance: balance
-            }
+    const onRecharge = () => { 
+        const headers = { 
+            'Authorization': `Bearer ${token}`
         }
-        axios.patch(`${URL_USER}/${user.userId}`, options)
+        const data = {  balance: parseFloat(balance) }
+        axios.patch(`${URL_USER}/${user.userId}`, data, { headers })
           .then(function (response) { 
-            console.log(response); 
+            saveUser(response.data); 
+            navigate("/profile");
+
           })
           .catch(function (error) {
             console.log(error);

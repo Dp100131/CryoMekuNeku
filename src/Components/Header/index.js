@@ -3,7 +3,7 @@ import "./index.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../Provider/Auth";
 import { Avatar } from "@fluentui/react-components";
-import ShoppingCartIcon from "../../imgs/cart-shopping-solid.svg";
+import { Cart } from "../Cart";
 
 export function Header(){
 
@@ -57,10 +57,8 @@ export function Header(){
                         <div className="flex flex-row items-center">
                             <div className="shopping items-center">
                                 {isLogIn() ? (
-                                    <div><Link
-                                    to={"/buy"}
-                                ><img src={ShoppingCartIcon} alt="Carrito de compras" className="icono-carrito"/></Link></div>
-                                    ) : null}
+                                    <Cart />
+                                ) : null}
                             </div>
                             <div className="login items-center">
                                 {isLogIn() ? <div><Link
