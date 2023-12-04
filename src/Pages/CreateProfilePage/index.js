@@ -3,6 +3,7 @@ import "./index.css";
 import { useUser } from "../../Provider/User";
 import { useAuth } from "../../Provider/Auth";
 import { useNavigate } from "react-router";
+import { Input } from "@material-tailwind/react";
 
 export function CreateProfilePage(){
 
@@ -55,7 +56,7 @@ export function CreateProfilePage(){
 
     return (
         <>
-            <div className="w-5/6 h-5/6 font-family-CPP">
+            <div className="w-5/6 h-5/6 font-family-CPP bg-white py-10 px-10 rounded-md">
                 <div className="relative z-0 w-full mb-6 group">
                     <input 
                     value={emailValue}
