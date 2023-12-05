@@ -1,4 +1,4 @@
-import React from "react";
+import React  from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useToken } from "../Token";
 import { useUser } from "../User";
@@ -8,8 +8,7 @@ const AuthContext = React.createContext();
 function AuthProvider({ children }) {
     
     const navigate = useNavigate();
-    const {user, saveUser} = useUser();
-
+    const {user, saveUser} = useUser(); 
     const { saveToken } = useToken(); 
     
     const login = ( data  ) => { 
@@ -35,7 +34,7 @@ function AuthProvider({ children }) {
 
     const isLogIn = () => { return user !== ''; }
 
-    const auth = { login, logout, isLogIn }
+    const auth = { login, logout, isLogIn  }
 
     return( <AuthContext.Provider value={auth}> {children} </AuthContext.Provider> )
 

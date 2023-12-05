@@ -37,6 +37,7 @@ export function CreateProfilePage(){
     };
 
     const onSubmit = () => {
+        setLoadingSignIn(true)
         axios.post(URL_SIGN_IN, {
             userName: nameValue,
             userLastName: lastNameValue,
@@ -45,12 +46,12 @@ export function CreateProfilePage(){
             typeId: 2
           })
           .then(function (response) {
-            console.log(response);
             axios.post(URL_LOG_IN, {
                 email: emailValue,
                 password: passwordValue
               })
-              .then(function (response) { 
+              .then(function (response) {
+                setLoadingSignIn(false);  
                 login(response.data);
               })
               .catch(function (error) {
@@ -58,6 +59,7 @@ export function CreateProfilePage(){
               });
           })
           .catch(function (error) {
+            setLoadingSignIn(false);
             console.log(error);
           }); 
     }

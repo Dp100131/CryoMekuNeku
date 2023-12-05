@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react"; 
 import "./index.css";
 import zelda from "../../imgs/TloZ.jpg";
 import amogus from "../../imgs/amongus.jpg";
@@ -11,14 +10,11 @@ import { Products } from "../../Components/Products";
 import { useVideoGames } from "../../Provider/videoGames";
 import { Spinner } from "@material-tailwind/react";
 
-export function HomePage(){ 
-    
-    const { videoGames, getVideoGames, loadingVideoGame} = useVideoGames();
-
+export function HomePage(){  
+    const { videoGames, getVideoGames, loadingVideoGame} = useVideoGames(); 
     useEffect(() => {
       getVideoGames();
-    }, [])
-
+    }, []) 
     return(
       <>
         {loadingVideoGame ? (
@@ -28,11 +24,11 @@ export function HomePage(){
             <div className="flex items-center justify-center">
               <div className="carousel-container rounded-xl h-1/4 overflow-hidden flex items-center justify-center w-5/6"> 
                 <Carousel transition={{ duration: 1 }} className="rounded-xl h-1/2 overflow-hidden">
-                  <img src={zelda} alt="totk"className="h-full w-full overflow-hidden object-cover"/>
-                  <img src={amogus} alt="amongus"className="h-full w-full  overflow-hidden object-cover"/>
-                  <img src={botw} alt="botw"className="h-full w-full overflow-hidden object-cover"/>
-                  <img src={spider} alt="spiderman2"className="h-full w-full overflow-hidden object-cover"/>
-                  <img src={cuphead} alt="cuphead"className="h-full w-full overflow-hidden object-cover"/>
+                  <img src={zelda} alt="totk"className="h-1/2 w-full overflow-hidden"/>
+                  <img src={amogus} alt="amongus"className="h-1/2 w-full  overflow-hidden"/>
+                  <img src={botw} alt="botw"className="h-1/2 w-full overflow-hidden"/>
+                  <img src={spider} alt="spiderman2"className="h-1/2 w-full overflow-hidden"/>
+                  <img src={cuphead} alt="cuphead"className="h-1/2 w-full overflow-hidden"/>
                 </Carousel> 
               </div>  
             </div>

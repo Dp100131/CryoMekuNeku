@@ -20,6 +20,7 @@ import { TokenProvider } from './Provider/Token';
 import { UserProvider } from './Provider/User';
 import { CartProvider } from './Provider/Cart'; 
 import { VideoGamesProvider } from './Provider/videoGames';
+import { RecoveryPassword } from './Pages/RecoveryPage';
 
 function App() {
   return ( 
@@ -43,6 +44,9 @@ function App() {
                         <Route path='/profile' element={ <AuthRoute> <ProfilePage/> </AuthRoute> }/>
                         <Route path='/buy' element={ <AuthRoute> <BuyPage/> </AuthRoute> }/>
                         <Route path='/Recharge' element={ <AuthRoute> <RechargePage/> </AuthRoute> }/>
+                        <Route path='/Recovery'>
+                          <Route path=':slug' element={<RecoveryPassword/>} />
+                        </Route>
                       </Routes>
                     </div>
                   <Footer></Footer>
