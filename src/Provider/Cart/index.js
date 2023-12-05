@@ -29,7 +29,23 @@ function CartProvider({ children }) {
           }); 
     };
 
-    const createCartForUser = () => {};
+    const createCartForUser = (gameId) => {
+      const headers = { 
+        'Authorization': `Bearer ${token}`
+    }
+    axios.post(`${URL_GET}/${gameId}`, 
+      {
+        userId: user.userId,
+        gameId: gameId
+      }
+      ,{ headers })
+      .then(function (response) { 
+        getCartForUser()
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    };
 
     const deleteCartForUser = () => {};
 

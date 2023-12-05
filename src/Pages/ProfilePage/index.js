@@ -4,6 +4,7 @@ import { useUser } from "../../Provider/User";
 import { useAuth } from "../../Provider/Auth";
 import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { formatNumberToCurrency } from "../../util"
 
 
 
@@ -45,7 +46,7 @@ export function ProfilePage(){
               </div>
               <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 md:grid-cols-4">
                 <dt className="text-sm font-family-profile font-medium leading-6 text-white text-white-900 text-start">Saldo</dt>
-                <dd className="mt-1 font-family-profile text-sm leading-6 text-white sm:col-span-2 sm:mt-0">$ {user.balance}</dd>
+                <dd className="mt-1 font-family-profile text-sm leading-6 text-white sm:col-span-2 sm:mt-0">{formatNumberToCurrency(user.balance)}</dd>
                 <Link to={'/Recharge'}>
                   <Button color="green">Recarga</Button>
                 </Link> 

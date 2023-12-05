@@ -60,7 +60,7 @@ export function LogInPage(){
               .catch(function (error) {
                 let stringBool = "UNF"
                 setLoadingLogIn(false);
-                setBoolpassType("stringBool") 
+                setBoolpassType(stringBool) 
                 setBoolpass(true)
               });
         }

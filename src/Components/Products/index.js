@@ -3,8 +3,24 @@ import { AddToCartIcon } from "../Icons";
 import './index.css';
 import { formatNumberToCurrency } from "../../util"
 import { Filters } from "../Filtro";
+import { useAuth } from "../../Provider/Auth";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../Provider/Cart";
 
 export function Products({ products }) {
+
+    const { isLogin } = useAuth();
+    const { createCartForUser } = useCart();
+    const navigate = useNavigate();
+
+    const addToCart = (gameId) => {
+        console.log(gameId)
+        if(!isLogin){
+            navigate('/LogIn')
+        }else{
+            createCartForUser(gameId);
+        }
+    }
 
     const [filterPrice, setFilterPrice] = useState(0);
     let maxPrice = 0;
@@ -28,7 +44,7 @@ export function Products({ products }) {
                             <strong>{product.gameName}</strong> - {formatNumberToCurrency(product.price)}
                         </div>
                         <div>
-                            <button>
+                            <button onClick={() => addToCart(product.gameId)}>
                                 <AddToCartIcon/>
                             </button>
                         </div>
