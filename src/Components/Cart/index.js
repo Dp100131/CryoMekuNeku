@@ -1,5 +1,5 @@
 import { useEffect, useId, useState } from 'react';
-import { CartIcon, ClearCartIcon } from '../Icons';
+import { CartIcon, RemoveFromCartIcon } from '../Icons';
 import { useCart } from '../../Provider/Cart'
 import './index.css'; 
 import { formatNumberToCurrency } from '../../util';
@@ -12,22 +12,37 @@ import { Spinner } from "@material-tailwind/react";
 
 function CartItems ({ products }) { 
 
+  const { deleteCartForUser } = useCart(); 
+
   return (
     <>
-        {products.map(item => {
-            let videoGame = item.videoGames[0]
-            return(
-                <li>
-                    <img
-                        src={videoGame.url}
-                        alt={videoGame.gameName}
-                    />
-                    <div>
-                        <strong>{videoGame.gameName}</strong> - {formatNumberToCurrency(videoGame.price)}
-                    </div> 
-                </li>
-            )
-        })}
+        {products.length > 0 ? (
+  products.map((item) => { 
+
+    return (
+      <li key={item.id} className="flex flex-col gap-1">
+        <img src={item.url} alt={item.game_name} />
+        <div>
+          <strong>{item.game_name}</strong> -{" "}
+          {formatNumberToCurrency(item.price)}
+        </div>
+        <div className="flex flex-row justify-between">
+          <button
+            onClick={() => deleteCartForUser(item.id)}
+            className="bg-red-500 rounded-2xl p-1"
+          >
+            <RemoveFromCartIcon />  
+          </button>
+          <button className="bg-green-500 p-1 font-bold rounded-md">
+            <h1>Comprar</h1>
+          </button>
+        </div>
+      </li>
+    );
+  })
+) : (
+  <h1>No hay juegos</h1>
+)}
     </>
   )
 }
@@ -37,6 +52,7 @@ export function Cart () {
   const {carts, getCartForUser,  loadingCart} = useCart(); 
     useEffect(() => {
         getCartForUser();
+        console.log(carts);
     }, []);
   return (
     <>
@@ -45,7 +61,7 @@ export function Cart () {
       </label>
       <input id={cartCheckboxId} type='checkbox' className='hidden' />
 
-      <aside className='cart'>
+      <aside className='cart overflow-y-auto'>
         {loadingCart ? (
           <Spinner />
         ) : (

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../Provider/Auth";
 import axios from "axios";
 import {  Dialog  } from "@material-tailwind/react";
-import { Spinner } from "@material-tailwind/react";
+import {  Spinner  } from "@material-tailwind/react";
 
 const URL_LOG_IN = "http://localhost:4200/auth/login"
 const URL_RECOVERY = "http://localhost:4200/auth/recovery"

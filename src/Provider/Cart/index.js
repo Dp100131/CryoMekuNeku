@@ -20,8 +20,8 @@ function CartProvider({ children }) {
         }
         axios.get(`${URL_GET}/${user.userId}`, { headers })
           .then(function (response) { 
-            setCarts(response.data); 
-            console.log(response.data);
+            setCarts(response.data[0]); 
+            console.log(response.data[0]);
             setLoadingCart(false);
           })
           .catch(function (error) {
@@ -29,16 +29,26 @@ function CartProvider({ children }) {
           }); 
     };
 
-    const createCartForUser = (gameId) => {
+    const createCartForUser = (gameId) => { 
       const headers = { 
         'Authorization': `Bearer ${token}`
-    }
-    axios.post(`${URL_GET}/${gameId}`, 
-      {
-        userId: user.userId,
-        gameId: gameId
       }
-      ,{ headers })
+      axios.post( URL_GET , 
+        {
+          userId: user.userId,
+          gameId: gameId
+        }
+        ,{ headers })
+        .then(function (response) { 
+          getCartForUser()
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+
+    const deleteCartForUser = (id) => {  
+      axios.delete(`${URL_GET}/${id}`)
       .then(function (response) { 
         getCartForUser()
       })
@@ -46,8 +56,6 @@ function CartProvider({ children }) {
         console.log(error);
       });
     };
-
-    const deleteCartForUser = () => {};
 
     const auth = { getCartForUser, createCartForUser, deleteCartForUser, carts, setCarts, loadingCart }
 

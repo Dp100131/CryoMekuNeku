@@ -30,6 +30,11 @@ export function ProfilePage(){
 
     return (
         <div className=" flex  flex-col justify-center align-middle w-auto mr-auto ml-auto bg-tertiary py-10 px-10 rounded-md">
+          {(user.typeId === 1) ? (
+            <div className="flex flex-row justify-end">
+              <button className="bg-green-500 rounded-md text-white font-bold p-2"><Link to={"/AddVG"}>Añadir productos</Link></button>
+            </div>
+          ) : (<></>)} 
           <div className="px-4 sm:px-0">
             <h3 className=" text-base font-family-profile font-semibold leading-7 text-white text-white-900">Información</h3>
             <p className="mt-1 max-w-2xl font-family-profile text-sm leading-6 text-white text-white-500">Información personal y detalles</p>

@@ -10,12 +10,12 @@ import { useCart } from "../../Provider/Cart";
 export function Products({ products }) {
 
     const { isLogin } = useAuth();
-    const { createCartForUser } = useCart();
+    const { createCartForUser  } = useCart();
     const navigate = useNavigate();
 
     const addToCart = (gameId) => {
         console.log(gameId)
-        if(!isLogin){
+        if(isLogin){
             navigate('/LogIn')
         }else{
             createCartForUser(gameId);
@@ -27,29 +27,30 @@ export function Products({ products }) {
     products.forEach(product => {
         if(maxPrice < product.price){ maxPrice = product.price}
     });
-    const filterProducts = products.filter(product => (product.price >= filterPrice));
-    
+    let filterProducts = products.filter(product => (product.price >= filterPrice)); 
+
    return (
     <>
         <Filters setFilter={setFilterPrice} maxValue={maxPrice}/>
         <main className="products"> 
             <ul>
-                {filterProducts.map(product => (
-                    <li key={product.gameId}>
-                        <img
-                            src={product.url}
-                            alt={product.gameName}
-                        ></img>
-                        <div>
-                            <strong>{product.gameName}</strong> - {formatNumberToCurrency(product.price)}
-                        </div>
-                        <div>
-                            <button onClick={() => addToCart(product.gameId)}>
-                                <AddToCartIcon/>
-                            </button>
-                        </div>
-                    </li>
-                ))}
+                {filterProducts.map(product =>{  
+                    return (
+                        <li key={product.gameId}>
+                            <img
+                                src={product.url}
+                                alt={product.gameName}
+                            ></img>
+                            <div>
+                                <strong>{product.gameName}</strong> - {formatNumberToCurrency(product.price)}
+                            </div>
+                            <div> 
+                                <button onClick={() => addToCart(product.gameId)}>
+                                    <AddToCartIcon/>
+                                </button> 
+                            </div>
+                        </li>
+                )})}
             </ul> 
         </main>
     </>

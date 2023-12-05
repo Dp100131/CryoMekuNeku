@@ -21,6 +21,7 @@ import { UserProvider } from './Provider/User';
 import { CartProvider } from './Provider/Cart'; 
 import { VideoGamesProvider } from './Provider/videoGames';
 import { RecoveryPassword } from './Pages/RecoveryPage';
+import { AddVideoGame } from './Pages/AddVideoGame';
 
 function App() {
   return ( 
@@ -47,6 +48,7 @@ function App() {
                         <Route path='/Recovery'>
                           <Route path=':slug' element={<RecoveryPassword/>} />
                         </Route>
+                        <Route path='/AddVG' element={<AddVideoGame/>} />
                       </Routes>
                     </div>
                   <Footer></Footer>
